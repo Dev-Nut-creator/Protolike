@@ -1,3 +1,45 @@
 [gd_scene format=3 uid="uid://brxgjpe500tmc"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_aex8v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aex8v"]
+radius = 0.57547164
+height = 2.0888882
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aex8v"]
+size = Vector2(1.9142418, 5.5322266)
+
+[sub_resource type="QuadMesh" id="QuadMesh_aex8v"]
+
 [node name="Node2D" type="Node2D" unique_id=1500747103]
+
+[node name="Player" type="Node2D" parent="." unique_id=950704350]
+position = Vector2(1, -1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Player" unique_id=1821975065]
+position = Vector2(40, 36.999996)
+scale = Vector2(26.500002, 22.500002)
+mesh = SubResource("CapsuleMesh_aex8v")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Player/MeshInstance2D" unique_id=1190549040]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/MeshInstance2D/CharacterBody2D" unique_id=1470961524]
+shape = SubResource("CapsuleShape2D_aex8v")
+
+[node name="Floor" type="Node2D" parent="." unique_id=1887917209]
+position = Vector2(294, 612.00006)
+scale = Vector2(1227.0774, -63.32073)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Floor" unique_id=82880473]
+physics_interpolation_mode = 2
+position = Vector2(-0.0024448333, 0.12634188)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/RigidBody2D" unique_id=1470200089]
+position = Vector2(0, -5.9604645e-08)
+scale = Vector2(0.24786073, 0.18075904)
+shape = SubResource("RectangleShape2D_aex8v")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor" unique_id=1579655127]
+position = Vector2(-0.0008149445, 0.1263419)
+scale = Vector2(0.4762634, 1)
+mesh = SubResource("QuadMesh_aex8v")
